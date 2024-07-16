@@ -1,0 +1,74 @@
+<div>
+    <h2>Data Export</h2>
+    <button class="btn btn-primary me-2" (click)="exportToExcel()">Export to Excel</button>
+    <button class="btn btn-secondary me-2" (click)="exportToPdf()">Export to PDF</button>
+    <button class="btn btn-success" (click)="printData()">Print Data</button>
+  
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: left;
+      }
+  
+      table, th, td {
+        border: 1px solid #ddd;
+      }
+  
+      th, td {
+        padding: 12px;
+      }
+  
+      thead {
+        background-color: #f2f2f2;
+      }
+  
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+  
+      tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+  
+      tbody tr:hover {
+        background-color: #f1f1f1;
+      }
+  
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+        #printableArea, #printableArea * {
+          visibility: visible;
+        }
+        #printableArea {
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    </style>
+  
+    <div id="printableArea">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>{{ item.name }}</td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.department }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

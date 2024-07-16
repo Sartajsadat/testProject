@@ -1,0 +1,140 @@
+/* Ensure the sidebar is positioned correctly and does not overlap the header */
+.sidebar {  
+  position: fixed;
+  top: 56px;
+  right: -250px;
+  width: 250px;
+  height: calc(100% - 56px); /* Adjust height to avoid overlapping header */
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  background-color: #343a40;
+  color: #fff;
+  padding-top: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 15px; /* Rounded edges */
+  border-bottom-left-radius: 15px; /* Rounded edges */
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.three-dot-icon {
+  cursor: pointer;
+  margin-left: 1rem;
+  color: #fff; /* Change color to white */
+}
+
+.search-icon {
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.d-none {
+  display: none;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.list-unstyled {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.list-unstyled li {
+  position: relative;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.list-unstyled li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+.list-unstyled li a:hover {
+  background-color: #495057;
+}
+
+/* Submenu styles */
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Adjust left value to position submenu outside sidebar */
+  width: 150px; /* Adjust width as needed */
+  background-color: #495057;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: block;
+  border-radius: 10px; /* Rounded edges */
+}
+
+.submenu li {
+  padding: 5px 20px; /* Adjust padding for submenu items */
+}
+
+.submenu li a {
+  color: #ffffff; /* Text color for submenu items */
+}
+
+.submenu li a:hover {
+  background-color: #6c757d; /* Hover effect for submenu items */
+}
+
+/* Close icon styling */
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* Enhance header styles */
+.navbar {
+  background-color: #343a40;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #d4d4d4 !important;
+}
+
+/* Body animation */
+.animate-body {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.header-search-box {
+  margin-left: 10px;
+  width: 200px;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}

@@ -1,10 +1,18 @@
+// app.component.ts
 import { Component } from '@angular/core';
-
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+// library.add(faArrowRight);
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'menu';
+  sidebarActive = false;
+  
+
+  toggleSidebar() {
+    this.sidebarActive = !this.sidebarActive;
+  }
+  
 }

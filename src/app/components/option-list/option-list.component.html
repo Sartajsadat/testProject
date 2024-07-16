@@ -1,0 +1,6 @@
+<div>
+    <input [formControl]="searchControl" placeholder="Search options">
+    <ul>
+      <li *ngFor="let option of filteredOptions">{{ option }}</li>
+    </ul>
+  </div>

@@ -1,0 +1,13 @@
+<!-- src/app/my-component/my-component.component.html -->
+<div class="container">
+    <button (click)="changeLanguage('en')" class="btn btn-success m-2">
+      English
+    </button>
+    <button (click)="changeLanguage('fa')" class="btn btn-success m-2">
+      فارسی
+    </button>
+    <button (click)="changeLanguage('ps')" class="btn btn-success m-2">
+      پښتو
+    </button>
+    <h4>{{ "greeting" | translate }}</h4>
+  </div>

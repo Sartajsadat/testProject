@@ -1,0 +1,84 @@
+<div class="container">
+    <button class="btn btn-primary mb-3" (click)="openAddReduxModal(addReduxModal)">Add Redux</button>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let redux of redux$ | async">
+          <td>{{ redux.name }}</td>
+          <td>{{ redux.age }}</td>
+          <td>{{ redux.address }}</td>
+          <td>{{ redux.phoneNumber }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm me-2" (click)="openEditReduxModal(editReduxModal, redux)">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="onDelete(redux.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Add Redux Modal -->
+  <ng-template #addReduxModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Add Redux</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="addReduxForm" (ngSubmit)="onSubmit(modal)">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" id="age" formControlName="age" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" id="address" formControlName="address" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+  </ng-template>
+  
+  <!-- Edit Redux Modal -->
+  <ng-template #editReduxModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Edit Redux</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="editReduxForm" (ngSubmit)="onEditSubmit(modal)">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" id="age" formControlName="age" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" id="address" formControlName="address" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </ng-template>

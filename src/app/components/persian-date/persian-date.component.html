@@ -1,0 +1,25 @@
+  <h2>Persian Date</h2>
+<div class="input-group w-80 mt-3" style="direction: ltr;">
+    <input
+      class="form-control"
+      id="start-date"
+      name="start-date"
+      [(ngModel)]="startDate"
+      ngbDatepicker
+      #d="ngbDatepicker"
+      (click)="d.toggle()"
+    />
+    <div class="input-group-append">
+      <!-- Bootstrap Icon -->
+      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+        <i class="bi bi-calendar"></i>
+      </button>
+      <!-- Font Awesome Icon -->
+      <!-- 
+      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+        <i class="fas fa-calendar"></i>
+      </button>
+      -->
+    </div>
+    
+  </div>

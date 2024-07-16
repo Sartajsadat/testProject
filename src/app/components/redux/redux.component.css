@@ -1,0 +1,17 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-header {
+    border-bottom: none;
+  }
+  
+  .btn-close {
+    background: transparent;
+    border: none;
+  }
+  

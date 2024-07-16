@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item" *ngFor="let item of items">
+          <a class="nav-link" [routerLink]="getRouterLink(item)">{{ item }}</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center ml-auto">
+        <i class="bi bi-three-dots-vertical three-dot-icon" (click)="toggleSidebar()"></i>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Right Sidebar -->
+<nav class="sidebar bg-dark" [class.active]="sidebarActive">
+  <div class="close-icon" (click)="toggleSidebar()">
+    <i class="bi bi-x"></i>
+  </div>
+  <div class="search-container">
+    <i class="bi bi-search search-icon" (click)="toggleSearch()"></i>
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="headerSearchQuery" (input)="search()" [class.d-none]="!searchActive" />
+  </div>
+  <ul class="list-unstyled">
+    <li *ngFor="let item of filteredItems" (mouseenter)="showSettingsSubmenu(item)" (mouseleave)="hideSettingsSubmenu()">
+      <a [routerLink]="getRouterLink(item)">
+        {{ item }}
+        <i class="bi bi-chevron-right" *ngIf="item === 'Settings'"></i>
+      </a>
+      <!-- Submenu for Settings -->
+      <ul *ngIf="settingsSubmenuVisible && hoveredItem === item" class="submenu list-unstyled">
+        <li *ngFor="let subItem of submenuItems">
+          <a [routerLink]="getRouterLink(subItem)">{{ subItem }}</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
